@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Guezz Number</string>
+    <string name="game_name">Угадай число</string>
+    <string name="TryingToSolve">Теперь телефон будет пытаться его отгадать</string>
+</resources>
