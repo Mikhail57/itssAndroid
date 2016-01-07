@@ -50,12 +50,12 @@ public class WeatherAdapter extends BaseAdapter {
         Weather w = getWeather(position);
 
         ((TextView) view.findViewById(R.id.wind)).setText(w.wind);
-//        ((TextView) view.findViewById(R.id.temp)).setText(w.temp);
+        ((TextView) view.findViewById(R.id.temp)).setText(w.temp);
         ((TextView) view.findViewById(R.id.cloud)).setText(w.cloud);
         ((TextView) view.findViewById(R.id.date)).setText(w.date);
-//        ((TextView) view.findViewById(R.id.humidity)).setText(w.humidity);
-//        ((TextView) view.findViewById(R.id.tod)).setText(w.tod);
-//        ((TextView) view.findViewById(R.id.pressure)).setText(w.pressure);
+        ((TextView) view.findViewById(R.id.humidity)).setText(w.humidity);
+        ((TextView) view.findViewById(R.id.tod)).setText(w.tod);
+        ((TextView) view.findViewById(R.id.pressure)).setText(w.pressure);
 
         return view;
     }

@@ -54,7 +54,7 @@ public class GisService extends Service {
             Intent i = new Intent(CHANNEL);
             i.putExtra(INFO, aVoid);
             sendBroadcast(i);
-            Log.i(TAG, "aVoid="+aVoid);
+            Log.e(TAG, "aVoid="+aVoid);
         }
 
         @Override
