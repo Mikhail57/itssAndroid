@@ -61,7 +61,9 @@ public class MainActivity extends ActionBarActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
             try {
-                JSONObject json = new JSONObject(intent.getStringExtra(GisService.INFO));
+                String receivedFromServer = intent.getStringExtra(GisService.INFO);
+                Log.e("RECEIVER", "Received from service="+receivedFromServer);
+                JSONObject json = new JSONObject(receivedFromServer);
                 JSONArray gisArray = json.getJSONArray("gis");
 
                 for (int i=0; i<gisArray.length(); i++){
@@ -80,8 +82,9 @@ public class MainActivity extends ActionBarActivity {
                 ListView listView = (ListView) findViewById(R.id.listView);
                 listView.setAdapter(weatherAdapter);
             } catch (JSONException e) {
-                Toast.makeText(MainActivity.this, "Неверный формат JSON",
+                Toast.makeText(MainActivity.this, "Произошла ошибка при обработке результатов.",
                         Toast.LENGTH_LONG).show();
+                Log.e("EXCEPTION", "EXCEPTION:"+e.getMessage());
             }
         }
     };
