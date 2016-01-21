@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.util.Log;
 import android.view.DragEvent;
 import android.view.MotionEvent;
 import android.view.SurfaceHolder;
@@ -45,6 +46,7 @@ public class DrawView extends SurfaceView implements SurfaceHolder.Callback {
                         }
                     }
                 }
+                Log.i("OnDragListener", "x="+event.getX()+"; y="+ event.getY());
 
                 return false;
             }
@@ -99,11 +101,12 @@ class DrawThread extends Thread {
                 try {
                     Paint paint = new Paint();
                     paint.setColor(Color.BLUE);
+                    paint.setColor(AddColor.computeColor(Color.RED, Color.YELLOW));
                     paint.setStyle(Paint.Style.FILL_AND_STROKE);
                     paint.setStrokeWidth(2);
                     canvas.drawColor(Color.DKGRAY);
                     for (int i=0; i<DrawView.getCircles().length; i++) {
-                        canvas.drawCircle(DrawView.getCircles()[i][1], DrawView.getCircles()[i][2], 100, paint);
+                        canvas.drawCircle(DrawView.getCircles()[0][0], DrawView.getCircles()[0][1], 100, paint);
                     }
 //                    canvas.drawCircle(circleX, circleY, 100, paint);
                 } finally {
